@@ -1,6 +1,7 @@
 import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
 import About from '@/components/home/About';
+import Clients from '@/components/home/Clients';
 import Contact from '@/components/home/Contact';
 
 export default function HomePage() {
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Hero />
       <Services />
       <About />
+      <Clients />
       <Contact />
     </div>
   );
