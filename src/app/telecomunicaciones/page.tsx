@@ -1,8 +1,18 @@
+import PageHero from '@/components/shared/PageHero';
+import TelecomSteps from '@/components/telecomunicaciones/TelecomSteps';
+import TelecomServices from '@/components/telecomunicaciones/TelecomServices';
+import TelecomProducts from '@/components/telecomunicaciones/TelecomProducts';
+
 export default function TelecomunicacionesPage() {
     return (
-        <div className="min-h-screen py-20 px-[10%]">
-            <h1 className="text-4xl font-bold mb-8">Telecomunicaciones</h1>
-            <p className="text-lg text-gray-300">Contenido en desarrollo...</p>
-        </div>
+        <main>
+            <PageHero
+                title="TELECOMUNICACIONES"
+                image="/img/A4_Teleco/bannerbox1.jpg"
+            />
+            <TelecomSteps />
+            <TelecomServices />
+            <TelecomProducts />
+        </main>
     );
 }
