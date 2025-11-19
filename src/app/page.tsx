@@ -3,10 +3,13 @@ import Services from '@/components/home/Services';
 import About from '@/components/home/About';
 import Clients from '@/components/home/Clients';
 import Contact from '@/components/home/Contact';
+import FontAwesomeLoader from '@/components/FontAwesomeLoader';
 
 export default function HomePage() {
   return (
     <div className="relative">
+      <FontAwesomeLoader />
+
       {/* Animated background circles */}
       <div className="area fixed top-0 left-0 w-full h-screen pointer-events-none opacity-30">
         <ul className="circles absolute top-0 left-0 w-full h-full overflow-hidden">

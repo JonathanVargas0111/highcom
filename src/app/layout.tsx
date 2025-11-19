@@ -61,7 +61,6 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-        <script src="https://kit.fontawesome.com/ce768f010e.js" crossOrigin="anonymous" defer></script>
       </body>
     </html>
   );
