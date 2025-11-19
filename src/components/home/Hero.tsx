@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function Hero() {
@@ -24,13 +25,26 @@ export default function Hero() {
             {/* Background Videos */}
             <div className="home-vid absolute inset-0 z-0">
                 <div className="vid-container relative w-full h-full overflow-hidden">
+                    {/* Poster image with priority */}
+                    <Image
+                        src="/img/A1_Inicio/telecom.jpg"
+                        alt="Highcom Background"
+                        fill
+                        priority
+                        quality={75}
+                        sizes="100vw"
+                        className="object-cover"
+                    />
+                    {/* Video loads after */}
                     <video
-                        className="background-video absolute w-full h-full object-cover"
+                        className="background-video absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000"
                         autoPlay
                         loop
                         muted
                         playsInline
-                        poster="/img/A1_Inicio/telecom.jpg"
+                        onLoadedData={(e) => {
+                            e.currentTarget.style.opacity = '0.6';
+                        }}
                     >
                         <source src="/vid/A1_Inicio/Video de página principal HIGHCOM.mp4" type="video/mp4" />
                     </video>

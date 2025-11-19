@@ -54,12 +54,14 @@ export default function RootLayout({
     <html lang="es" className={`${lato.variable} ${openSans.variable}`}>
       <head>
         <link rel="shortcut icon" href="/img/LOGO_HIGHCOM.png" />
-        <script src="https://kit.fontawesome.com/ce768f010e.js" crossOrigin="anonymous" async></script>
+        <link rel="preconnect" href="https://kit.fontawesome.com" />
+        <link rel="preconnect" href="https://ka-f.fontawesome.com" />
       </head>
       <body className="font-[var(--font-lato)]">
         <Header />
         <main>{children}</main>
         <Footer />
+        <script src="https://kit.fontawesome.com/ce768f010e.js" crossOrigin="anonymous" defer></script>
       </body>
     </html>
   );
