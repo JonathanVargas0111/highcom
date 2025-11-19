@@ -1,26 +1,209 @@
 @import "tailwindcss";
 
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --text-color: #F2F2F2;
+  --hover-color: #0dc959;
+  --hover-color-green: #0dc959;
+  --hover-color-red: #FF2415;
+  --bg-color: #292e33;
+  --secon-bg-color: #1f2327;
+  --three-bg-color: #3f4449;
+  --blue: #0097FC;
+  --light-blue: #7AC1FE;
+  --dark-blue: #008CEA;
+  --grey: #828282;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#292e33] text-[#F2F2F2] font-sans antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2 h-0;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secon-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hover-color);
+  @apply rounded-full;
+}
+
+/* Navigation Links */
+.nav-link {
+  @apply inline-block text-[#F2F2F2] text-xl font-bold uppercase px-5 py-2.5 relative transition-all duration-300;
+  background-image: linear-gradient(to right, #54b3d6, #54b3d6 50%, var(--text-color) 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideAnimation 1s ease forwards;
+  animation-delay: calc(0.3s * var(--i, 1));
+  opacity: 0;
+}
+
+.nav-link:hover {
+  background-position: 0;
+}
+
+.nav-link::before {
+  content: '';
+  background: #54b3d6;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+@keyframes slideAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Floating circles animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 20%;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+.animate-float {
+  animation: float 25s linear infinite;
+  bottom: -150px;
+}
+
+/* Hero Section Styles */
+.home {
+  position: relative;
+}
+
+.home-contect h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+}
+
+.change-text h3 {
+  position: relative;
+  min-height: 60px;
+}
+
+.change-text h3 .word {
+  color: var(--hover-color);
+}
+
+.info-box {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-box h5 {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.info-box span {
+  font-size: 0.9rem;
+  color: var(--hover-color);
+}
+
+.btn-box .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  font-weight: 900;
+  transition: 0.6s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: -1;
+  transition: 0.4s;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn:nth-child(1)::before {
+  background: var(--hover-color);
+}
+
+.btn:nth-child(2)::before {
+  background: var(--bg-color);
+}
+
+.social-icons a {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.social-icons a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: var(--hover-color);
+  transition: 0.6s;
+  z-index: -1;
+}
+
+.social-icons a:hover::before {
+  width: 100%;
+}
+
+.whatsapp-icon {
+  transition: all 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.05);
+}
+
+.background-video {
+  opacity: 0.6;
 }
