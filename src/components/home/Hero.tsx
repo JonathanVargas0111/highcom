@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 export default function Hero() {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const [videoLoaded, setVideoLoaded] = useState(false);
 
     const specialties = [
         'Telecomunicaciones',
@@ -25,7 +26,7 @@ export default function Hero() {
             {/* Background Videos */}
             <div className="home-vid absolute inset-0 z-0">
                 <div className="vid-container relative w-full h-full overflow-hidden">
-                    {/* Poster image with priority */}
+                    {/* Poster image with priority - fades out when video loads */}
                     <Image
                         src="/img/A1_Inicio/telecom.jpg"
                         alt="Highcom Background"
@@ -33,7 +34,7 @@ export default function Hero() {
                         priority
                         quality={75}
                         sizes="100vw"
-                        className="object-cover"
+                        className={`object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
                     />
                     {/* Video loads after */}
                     <video
@@ -44,6 +45,7 @@ export default function Hero() {
                         playsInline
                         onLoadedData={(e) => {
                             e.currentTarget.style.opacity = '0.6';
+                            setVideoLoaded(true);
                         }}
                     >
                         <source src="/vid/A1_Inicio/Video de página principal HIGHCOM.mp4" type="video/mp4" />
