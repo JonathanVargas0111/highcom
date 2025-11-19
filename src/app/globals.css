@@ -207,3 +207,33 @@
 .background-video {
   opacity: 0.6;
 }
+
+/* Services Flip Cards */
+.flip-container_services {
+  perspective: 1000px;
+}
+
+.card_services {
+  transform-style: preserve-3d;
+}
+
+.front_services,
+.back_services {
+  backface-visibility: hidden;
+}
+
+.back_services {
+  transform: rotateY(180deg);
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
